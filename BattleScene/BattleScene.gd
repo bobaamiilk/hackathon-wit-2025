@@ -22,8 +22,8 @@ func _ready():
 	$OpponentHP.value = opponent_hp
 	
 	# Connect buttons
-	$RealButton.connect("pressed", self, "_on_real_pressed")
-	$FakeButton.connect("pressed", self, "_on_fake_pressed")
+	$RealButton.pressed.connect(_on_real_pressed)
+	$FakeButton.pressed.connect(_on_fake_pressed)
 	
 	show_new_image()
 
@@ -38,13 +38,25 @@ func _on_real_pressed():
 func _on_fake_pressed():
 	handle_answer(true)
 
+# Attack animation for a TextureRect
+func animate_attack(avatar: TextureRect):
+	# Save the idle texture
+	var idle_texture = avatar.texture
+	# Set attack texture (replace with your own path)
+	avatar.texture = load("res://assets/player_attack.png")
+	# Wait 0.25 seconds, then revert
+	await get_tree().create_timer(0.25).timeout
+	avatar.texture = idle_texture
+	
 func handle_answer(answer_is_fake: bool):
 	if current_image["is_fake"] == answer_is_fake:
-		# Correct
+		# Correct → player attacks
+		animate_attack($PlayerAvatar)
 		opponent_hp -= 20
 		$FeedbackLabel.text = "Correct!"
 	else:
-		# Wrong
+		# Wrong → opponent attacks
+		animate_attack($OpponentAvatar)
 		player_hp -= 20
 		$FeedbackLabel.text = "Wrong!"
 	
