@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://brcm1s3num047"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="Window" type="Window" parent="."]
+
+[node name="MenuBar" type="MenuBar" parent="."]
+offset_left = -40.0
+offset_top = -24.0
+offset_right = 239.0
+offset_bottom = 123.0
