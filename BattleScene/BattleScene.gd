@@ -22,8 +22,8 @@ func _ready():
 	$OpponentHP.value = opponent_hp
 	
 	# Connect buttons
-	$RealButton.connect("pressed", self, "_on_real_pressed")
-	$FakeButton.connect("pressed", self, "_on_fake_pressed")
+	$RealButton.pressed.connect(_on_real_pressed)
+	$FakeButton.pressed.connect(_on_fake_pressed)
 	
 	show_new_image()
 
@@ -63,3 +63,7 @@ func handle_answer(answer_is_fake: bool):
 		$FakeButton.disabled = true
 	else:
 		show_new_image()
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://player/player.tscn")
