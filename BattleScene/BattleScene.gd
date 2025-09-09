@@ -75,3 +75,7 @@ func handle_answer(answer_is_fake: bool):
 		$FakeButton.disabled = true
 	else:
 		show_new_image()
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://player/player.tscn")
