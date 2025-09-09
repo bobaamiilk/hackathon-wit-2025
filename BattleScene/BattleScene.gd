@@ -14,7 +14,7 @@ var images = [
 
 var current_image = null
 
-func _ready():
+func _ready() -> void:
 	randomize()
 	$PlayerHP.max_value = 100
 	$OpponentHP.max_value = 100
@@ -27,44 +27,37 @@ func _ready():
 	
 	show_new_image()
 
-func show_new_image():
+func show_new_image() -> void:
 	current_image = images[randi() % images.size()]
 	$ImageDisplay.texture = load(current_image["path"])
 	$FeedbackLabel.text = ""   # clear feedback
 
-func _on_real_pressed():
+func _on_real_pressed() -> void:
 	handle_answer(false)
 
-func _on_fake_pressed():
+func _on_fake_pressed() -> void:
 	handle_answer(true)
 
 # Attack animation for a TextureRect
-func animate_attack(avatar: TextureRect):
-	# Save the idle texture
+func animate_attack(avatar: TextureRect) -> void:
 	var idle_texture = avatar.texture
-	# Set attack texture (replace with your own path)
 	avatar.texture = load("res://assets/player_attack.png")
-	# Wait 0.25 seconds, then revert
 	await get_tree().create_timer(0.25).timeout
 	avatar.texture = idle_texture
 	
-func handle_answer(answer_is_fake: bool):
+func handle_answer(answer_is_fake: bool) -> void:
 	if current_image["is_fake"] == answer_is_fake:
-		# Correct → player attacks
-		animate_attack($PlayerAvatar)
+		await animate_attack($PlayerAvatar)
 		opponent_hp -= 20
 		$FeedbackLabel.text = "Correct!"
 	else:
-		# Wrong → opponent attacks
-		animate_attack($OpponentAvatar)
+		await animate_attack($OpponentAvatar)
 		player_hp -= 20
 		$FeedbackLabel.text = "Wrong!"
 	
-	# Update HP bars
 	$PlayerHP.value = player_hp
 	$OpponentHP.value = opponent_hp
 	
-	# Check win/loss
 	if player_hp <= 0:
 		$FeedbackLabel.text = "You Lost!"
 		$RealButton.disabled = true
@@ -75,7 +68,3 @@ func handle_answer(answer_is_fake: bool):
 		$FakeButton.disabled = true
 	else:
 		show_new_image()
-
-
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://player/player.tscn")
