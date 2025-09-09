@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dqasqf7y7424s" path="res://art/playerGrey_up2.png" id="2_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://bk88niaeu4as1" path="res://art/playerGrey_walk1.png" id="3_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://dnq2nn5ip0uip" path="res://art/playerGrey_walk2.png" id="4_boad6"]
+[ext_resource type="Texture2D" uid="uid://b0g15ya7vqqnq" path="res://assets/pokemon image.jpg" id="6_g6k8r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rgyib"]
 animations = [{
@@ -31,10 +32,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hg6s5"]
-radius = 28.0
-height = 70.0
-
 [node name="player" type="Area2D"]
 script = ExtResource("1_qjkh3")
 
@@ -42,9 +39,6 @@ script = ExtResource("1_qjkh3")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rgyib")
 animation = &"walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_hg6s5")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 2
@@ -56,5 +50,15 @@ offset_right = 101.0
 offset_bottom = -25.0
 grow_vertical = 0
 text = "Start Game"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(745, 431)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("6_g6k8r")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
