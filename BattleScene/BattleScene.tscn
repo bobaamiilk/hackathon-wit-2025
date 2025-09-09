@@ -1,3 +1,72 @@
-[gd_scene format=3 uid="uid://dgvxwdgef3q8s"]
+[gd_scene load_steps=4 format=3 uid="uid://dgvxwdgef3q8s"]
+
+[ext_resource type="Script" uid="uid://bhg43w0ltj0wj" path="res://BattleScene/BattleScene.gd" id="1_0fuey"]
+[ext_resource type="Texture2D" path="res://assets/sprite 1.jpg" id="2_6nrqt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phlvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6nrqt")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="BattleScene" type="Node2D"]
+script = ExtResource("1_0fuey")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 743.0
+offset_bottom = 404.0
+
+[node name="PlayerAvatar" type="TextureRect" parent="."]
+offset_left = 108.0
+offset_top = 103.0
+offset_right = 177.0
+offset_bottom = 143.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerAvatar"]
+position = Vector2(301, 188)
+sprite_frames = SubResource("SpriteFrames_phlvo")
+animation = &"new_animation"
+
+[node name="OpponentAvatar" type="TextureRect" parent="."]
+visible = false
+offset_left = 69.0
+offset_top = 71.0
+offset_right = 109.0
+offset_bottom = 111.0
+
+[node name="PlayerHP" type="ProgressBar" parent="."]
+visible = false
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="OpponentHP" type="ProgressBar" parent="."]
+visible = false
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="ImageDisplay" type="TextureRect" parent="."]
+visible = false
+offset_left = 53.0
+offset_top = 18.0
+offset_right = 93.0
+offset_bottom = 58.0
+
+[node name="RealButton" type="Button" parent="."]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="FakeButton" type="Button" parent="."]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="FeedbackLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
