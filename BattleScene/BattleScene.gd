@@ -31,6 +31,11 @@ func show_new_image() -> void:
 	current_image = images[randi() % images.size()]
 	$ImageDisplay.texture = load(current_image["path"])
 	$FeedbackLabel.text = ""   # clear feedback
+	
+	var screen_size = get_viewport().get_visible_rect().size
+	var image_size = $ImageDisplay.texture.get_size() * 0.6
+	$ImageDisplay.position = (screen_size - image_size) / 2
+	$ImageDisplay.scale = Vector2(0.6, 0.6)
 
 func _on_real_pressed() -> void:
 	handle_answer(false)
