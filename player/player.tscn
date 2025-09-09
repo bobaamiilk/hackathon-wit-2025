@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btry5mjqas30y"]
+[gd_scene load_steps=9 format=3 uid="uid://btry5mjqas30y"]
 
 [ext_resource type="Script" uid="uid://c1d1xrxi83l52" path="res://player/player.gd" id="1_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://nptyigaq6jsc" path="res://art/playerGrey_up1.png" id="1_yw30f"]
@@ -32,6 +32,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6k8r"]
+radius = 54.0
+height = 140.0
+
 [node name="player" type="Area2D"]
 script = ExtResource("1_qjkh3")
 
@@ -39,6 +43,9 @@ script = ExtResource("1_qjkh3")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rgyib")
 animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+shape = SubResource("CapsuleShape2D_g6k8r")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 2

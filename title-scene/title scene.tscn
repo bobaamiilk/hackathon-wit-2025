@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5c8t26isal0"]
+
+[ext_resource type="Script" uid="uid://cx763ym6ub2us" path="res://title-scene/title_scene.gd" id="1_ix28i"]
+[ext_resource type="Texture2D" uid="uid://cgervusv03gw" path="res://assets/fake1.png" id="1_n6ort"]
+
+[node name="TitleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ix28i")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(708, 390)
+texture = ExtResource("1_n6ort")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 470.0
+offset_right = 1019.0
+offset_bottom = 615.0
+theme_override_font_sizes/font_size = 100
+text = "Start Game !"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

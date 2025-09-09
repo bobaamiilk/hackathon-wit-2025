@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="New Game Project"
+run/main_scene="uid://dw5c8t26isal0"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
