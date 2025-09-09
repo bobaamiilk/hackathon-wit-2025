@@ -10,13 +10,13 @@ func _ready():
 
 func _process(delta):
 	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
 
 	if velocity.length() > 0:
@@ -36,9 +36,6 @@ func _process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
-	
-	on_button_pressed()
 
-	func on_Button_pressed():
-		get_tree().change_scene_to_file("res://battle_scene/battle_scene.tscn")
-	
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://BattleScene/BattleScene.tscn")
