@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgvxwdgef3q8s"]
+[gd_scene load_steps=5 format=3 uid="uid://dgvxwdgef3q8s"]
 
 [ext_resource type="Script" uid="uid://bhg43w0ltj0wj" path="res://BattleScene/BattleScene.gd" id="1_0fuey"]
 [ext_resource type="Texture2D" uid="uid://cgervusv03gw" path="res://assets/fake1.png" id="2_6nrqt"]
+[ext_resource type="Script" uid="uid://1o0elqaxs7by" path="res://BattleScene/label_2.gd" id="3_phlvo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_phlvo"]
 animations = [{
@@ -106,4 +107,29 @@ offset_top = 59.0
 offset_right = 1353.0
 offset_bottom = 86.0
 
+[node name="Button2" type="Button" parent="."]
+offset_left = -2.0
+offset_top = 884.0
+offset_right = 170.0
+offset_bottom = 952.0
+theme_override_font_sizes/font_size = 50
+text = "hint !"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 615.0
+offset_right = 251.0
+offset_bottom = 878.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "AI images often 
+lack details that 
+can be found in 
+real pictures,
+ leading to these 
+photos having 
+an 'airbrushed' look"
+script = ExtResource("3_phlvo")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="Label2" method="_on_button_2_pressed"]

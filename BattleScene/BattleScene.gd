@@ -8,8 +8,12 @@ var opponent_hp = 100
 var images = [
 	{"path": "res://assets/real1.png", "is_fake": false},
 	{"path": "res://assets/real2.png", "is_fake": false},
+	{"path": "res://assets/real3.png", "is_fake": false},
+	{"path": "res://assets/real4.png", "is_fake": false},
 	{"path": "res://assets/fake1.png", "is_fake": true},
 	{"path": "res://assets/fake2.png", "is_fake": true},
+	{"path": "res://assets/fake3.png", "is_fake": true},
+	{"path": "res://assets/fake4.png", "is_fake": true},
 ]
 
 var current_image = null
