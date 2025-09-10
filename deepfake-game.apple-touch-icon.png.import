@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dwufl3cmrjk13"
+=======
+uid="uid://bmej1syqtfcom"
+>>>>>>> 52e6003f2e5ee9a4f7d00fc96bae86f3d154050f
 path="res://.godot/imported/deepfake-game.apple-touch-icon.png-cd1cdfcb3b065610cb75e2a2b6145075.ctex"
 metadata={
 "vram_texture": false
