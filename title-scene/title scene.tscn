@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw5c8t26isal0"]
 
 [ext_resource type="Script" uid="uid://cx763ym6ub2us" path="res://title-scene/title_scene.gd" id="1_ix28i"]
-[ext_resource type="Texture2D" uid="uid://cgervusv03gw" path="res://assets/fake1.png" id="1_n6ort"]
+[ext_resource type="Texture2D" uid="uid://bu2t0blen2cy2" path="res://assets/Screenshot 2025-09-10 at 10.15.10 am.png" id="2_ix28i"]
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3
@@ -18,8 +18,9 @@ script = ExtResource("1_ix28i")
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(708, 390)
-texture = ExtResource("1_n6ort")
+position = Vector2(1336, 383)
+scale = Vector2(2.19138, 2.41926)
+texture = ExtResource("2_ix28i")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

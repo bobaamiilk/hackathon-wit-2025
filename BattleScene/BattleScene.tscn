@@ -56,17 +56,17 @@ offset_right = 553.0
 offset_bottom = 310.0
 
 [node name="RealButton" type="Button" parent="."]
-offset_left = 341.0
-offset_top = 745.0
-offset_right = 455.0
-offset_bottom = 831.0
+offset_left = 303.0
+offset_top = 825.0
+offset_right = 472.0
+offset_bottom = 911.0
 text = "real"
 
 [node name="FakeButton" type="Button" parent="."]
-offset_left = 1003.0
-offset_top = 753.0
-offset_right = 1101.0
-offset_bottom = 838.0
+offset_left = 948.0
+offset_top = 821.0
+offset_right = 1140.0
+offset_bottom = 906.0
 text = "fake"
 
 [node name="FeedbackLabel" type="Label" parent="."]

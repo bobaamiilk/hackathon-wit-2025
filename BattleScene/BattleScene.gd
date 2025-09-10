@@ -67,10 +67,12 @@ func handle_answer(answer_is_fake: bool) -> void:
 		$FeedbackLabel.text = "You Lost!"
 		$RealButton.disabled = true
 		$FakeButton.disabled = true
+		get_tree().change_scene_to_file("res://lose scene/lose_scene.tscn")
 	elif opponent_hp <= 0:
 		$FeedbackLabel.text = "You Won!"
 		$RealButton.disabled = true
 		$FakeButton.disabled = true
+		get_tree().change_scene_to_file("res://win scene/win_scene.tscn")
 	else:
 		show_new_image()
 
